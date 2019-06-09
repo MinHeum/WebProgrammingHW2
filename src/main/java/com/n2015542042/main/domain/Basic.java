@@ -16,7 +16,8 @@ import java.io.Serializable;
 @Entity
 public class Basic implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
     @Column
@@ -39,7 +40,7 @@ public class Basic implements Serializable {
         this.phone = phone;
     }
 
-    public void Update(Basic basic) {
+    public void update(Basic basic) {
         this.name = basic.getName();
         this.label = basic.getLabel();
         this.email = basic.getEmail();

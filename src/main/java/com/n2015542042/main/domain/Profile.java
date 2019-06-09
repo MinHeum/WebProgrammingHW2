@@ -17,7 +17,8 @@ import java.time.LocalDateTime;
 @Entity
 public class Profile implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
     @Column
@@ -42,5 +43,12 @@ public class Profile implements Serializable {
 
     public void setCreateDateNow() {
         this.createdat = LocalDateTime.now();
+    }
+
+    public void update(Profile profile) {
+        this.network = profile.getNetwork();
+        this.username = profile.getUsername();
+        this.url = profile.getUrl();
+        this.createdat = profile.getCreatedat();
     }
 }

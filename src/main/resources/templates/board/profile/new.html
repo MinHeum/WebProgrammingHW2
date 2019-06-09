@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymelaeaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <title>2015542042, 박민흠</title>
+    <link rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div th:replace="layout/header::header"></div>
+
+<div class="container">
+    <div class="page-header">
+        <h1>Profile new</h1>
+    </div>
+    <br/>
+    <input id="profile_idx" type="hidden" th:value="${profile.idx}"/>
+    <input id="profile_createdat" type="hidden" th:value="${profile?.createdat}"/>
+    <table class="table">
+        <tr>
+            <th style="padding:13px 0 0 15px;">SNS</th>
+            <td>
+                <input id="profile_network" type="text" class="col-md-1 form-control input-sm"
+                       th:value="${profile.network}"/>
+            </td>
+        </tr>
+        <tr>
+            <th style="padding:13px 0 0 15px;">ID</th>
+            <td>
+                <input id="profile_username" type="text" class="col-md-1 form-control input-sm"
+                       th:value="${profile.username}"/>
+            </td>
+        </tr>
+        <tr>
+            <th style="padding:13px 0 0 15px;">링크</th>
+            <td>
+                <input id="profile_url" type="text" class="col-md-1 form-control input-sm"
+                       th:value="${profile.url}"/>
+            </td>
+        </tr>
+        <tr>
+            <th style="padding:13px 0 0 15px;">등록시간</th>
+            <td th:text="${#temporals.format(profile.createdat, 'YYYY-MM-dd HH:mm:ss')}">
+            </td>
+        </tr>
+    </table>
+    <div class="pull-left" style="width:100px;margin:10px 1px;">
+        <button th:if="!${profile?.idx}" type="button" class="btn btn-success btn-block" id="insert">인원 등록</button>
+        <button th:if="${profile?.idx}" type="button" class="btn btn-success btn-block" id="update">인원 수정</button>
+        <button th:if="${profile?.idx}" type="button" class="btn btn-danger btn-block" id="delete">인원 삭제</button>
+    </div>
+
+    <div class="pull-right" style="width:100px;margin:10px 0;">
+        <a href="/" class="btn btn-primary btn-block">되돌아가기</a>
+    </div>
+</div>
+
+<br/><br/><br/>
+
+<div th:replace="layout/footer::footer"></div>
+</body>
+</html>
