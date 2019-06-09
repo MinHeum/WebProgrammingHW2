@@ -18,22 +18,27 @@
     <table class="table">
         <tr>
             <th style="padding:13px 0 0 15px;">이름</th>
-            <td><input id="basic_name" type="text" class="col-md-1 form-control input-sm" th:value="${basic?.name}"/>
+            <td><input id="basic_name" type="text" class="col-md-1 form-control input-sm"
+                       th:placeholder="홍길동"
+                       th:value="${basic?.name}"/>
             </td>
         </tr>
         <tr>
             <th style="padding:13px 0 0 15px;">직책</th>
             <td><input id="basic_label" type="text" class="col-md-1 form-control input-sm"
+                       th:placeholder="CEO"
                        th:value="${basic?.label}"/></td>
         </tr>
         <tr>
             <th style="padding:13px 0 0 15px;">이메일</th>
             <td><input id="basic_email" type="text" class="col-md-1 form-control input-sm"
+                       placeholder="example@example.com"
                        th:value="${basic?.email}"/></td>
         </tr>
         <tr>
             <th style="padding:13px 0 0 15px;">연락처</th>
             <td><input id="basic_phone" type="text" class="col-md-1 form-control input-sm"
+                       th:placeholder="010-0000-0000"
                        th:value="${basic?.phone}"/></td>
         </tr>
         <tr>
